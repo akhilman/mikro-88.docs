@@ -4,19 +4,19 @@ CHANGES_SRC := src/changes.png
 STRUCTURAL_SRC := src/structural_scheme.png
 SCHEME_SRC := src/scheme.png
 
-default: micro-88.djvu
+default: mikro-88.djvu
 
-micro-88.pdf: $(COVER_SRC) $(MANUAL_SRC) $(CHANGES_SRC) $(STRUCTURAL_SRC) $(SCHEME_SRC)
+mikro-88.pdf: $(COVER_SRC) $(MANUAL_SRC) $(CHANGES_SRC) $(STRUCTURAL_SRC) $(SCHEME_SRC)
 	img2pdf \
-		-o micro-88.pdf \
+		-o mikro-88.pdf \
 		$(COVER_SRC) \
 		$(CHANGES_SRC) \
 		$(MANUAL_SRC) \
 		$(STRUCTURAL_SRC) \
 		$(SCHEME_SRC)
 
-micro-88.djvu: micro-88.pdf
-	pdf2djvu micro-88.pdf > micro-88.djvu
+mikro-88.djvu: mikro-88.pdf
+	pdf2djvu --jobs=0 -o mikro-88.djvu mikro-88.pdf
 
 clean:
-	rm micro-88.pdf micro-88.djvu || true
+	rm mikro-88.pdf mikro-88.djvu || true
